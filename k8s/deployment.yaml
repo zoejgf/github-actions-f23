@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: starwars-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      chapter: sdev372
+  template:
+    metadata:
+      labels:
+        chapter: sdev372
+    spec:
+      containers:
+        - name: starwars-container
+          image: zoejgf/starwars-api
+          ports:
+           containerPort: 8080
